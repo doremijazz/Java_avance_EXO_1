@@ -8,6 +8,8 @@ public class ArticleDao extends Dao {
 		return true;
 	}
 	
-	
+	public Article read(int id) {
+		
+	}
 
 }
