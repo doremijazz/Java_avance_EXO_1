@@ -1,5 +1,5 @@
 package jdbc.dao;
 
-public class ArticleDao {
+public class ArticleDao extends Dao {
 
 }
