@@ -29,4 +29,9 @@ public class ArticleDao extends Dao {
 		}
 	}
 
+	private Article createArticleFromResult(ResultSet result) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
