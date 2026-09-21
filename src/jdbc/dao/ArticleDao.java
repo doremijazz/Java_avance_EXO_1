@@ -27,11 +27,15 @@ public class ArticleDao extends Dao {
 		}catch (SQLException exception) {
 			System.err.println("Erreur lors d ela lecture de l'article : " + exception.getMessage());
 		}
+		return null;
 	}
 
 	private Article createArticleFromResult(ResultSet result) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return new Article(
+				result.getInt("idArticle"),
+				result.getString("Description"),
+				result.getString("Brand"),
+				result.getFloat("UnitaryPrice"));
 	}
 
 }
