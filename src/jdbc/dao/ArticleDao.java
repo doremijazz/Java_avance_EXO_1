@@ -93,6 +93,27 @@ public class ArticleDao extends Dao {
 		}
 	}
 	
+	  public boolean delete(int id) {
+	        String sql = "DELETE FROM t_articles WHERE idArticle = ?";
+
+	        try (
+	            Connection connection = getconnection();
+	            PreparedStatement statement = connection.prepareStatement(sql)
+	        ) {
+	            statement.setInt(1, id);
+
+	            return statement.executeUpdate() == 1;
+
+	        } catch (SQLException exception) {
+	            System.err.println(
+	                    "Erreur lors de la suppression de l'article : "
+	                    + exception.getMessage()
+	            );
+	        }
+
+	        return false;
+	    }
+	
 
 	private Article createArticleFromResult(ResultSet result) throws SQLException {
 		return new Article(
