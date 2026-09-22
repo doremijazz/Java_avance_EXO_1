@@ -7,11 +7,11 @@ public class Article {
 	private String Brand;
 	private float UnitaryPrice;
 	
-	public Article(int idArticle, String Description, String Brand, float UnitaryPrice) {
+	public Article(int idArticle, String Description, String Brand, double d) {
 		this.idArticle = idArticle;
 		this.Description = Description;
 		this.Brand = Brand;
-		this.UnitaryPrice = UnitaryPrice;
+		this.UnitaryPrice = (float) d;
 	}
 
 	public Article(String description, String brand, double d) {
