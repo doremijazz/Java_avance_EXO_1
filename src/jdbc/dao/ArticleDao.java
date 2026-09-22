@@ -12,7 +12,17 @@ import jdbc.model.Article;
 public class ArticleDao extends Dao {
 	
 	public boolean create(Article article) {
-		return true;
+		String sql = "INSERT INTO t_articles (Description, Brand, UnitaryPrice) VALUES (?, ?,?)";
+		try(Connection connection = getconnection();
+				PreparedStatement statement = connection.prepareStatement(sql)){
+			statement.setString(1, article.getDescription());
+			statement.setString(2, article.getBrand());
+			statement.setFloat(3, article.getUnitaryPrice());
+			return true;
+		}catch (SQLException exception) {
+			System.err.println("Erreur lors de la creation de l'article en db : " + exception.getMessage());
+		}
+		return false;
 	}
 	
 	public Article read(int id) {
