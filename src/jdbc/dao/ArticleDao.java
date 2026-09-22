@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +15,24 @@ public class ArticleDao extends Dao {
 	public boolean create(Article article) {
 		String sql = "INSERT INTO t_articles (Description, Brand, UnitaryPrice) VALUES (?, ?,?)";
 		try(Connection connection = getconnection();
-				PreparedStatement statement = connection.prepareStatement(sql)){
+				PreparedStatement statement = connection.prepareStatement(sql,
+						Statement.RETURN_GENERATED_KEYS)){
 			statement.setString(1, article.getDescription());
 			statement.setString(2, article.getBrand());
 			statement.setFloat(3, article.getUnitaryPrice());
-			return true;
+			
+			int rows = statement.executeUpdate();
+			
+			if (rows == 1){
+				try (ResultSet keys = statement.getGeneratedKeys()){
+					if (keys.next()) {
+						article.setIdArticle(keys.getInt(1));
+					}
+					
+				}
+				return true;
+			}
+			
 		}catch (SQLException exception) {
 			System.err.println("Erreur lors de la creation de l'article en db : " + exception.getMessage());
 		}

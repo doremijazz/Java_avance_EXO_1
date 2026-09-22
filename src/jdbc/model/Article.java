@@ -15,8 +15,8 @@ public class Article {
 	}
 
 	public Article(String description, String brand, double d) {
-		this.Description = Description;
-		this.Brand = Brand;
+		this.Description = description;
+		this.Brand = brand;
 		this.UnitaryPrice = (float) d;
 	}
 
