@@ -33,6 +33,8 @@ public class main {
 		System.out.println("MAJ d'un article dans la db : " + sucess_2);
 		
 		//DELETE
+		Boolean sucess_3 = Article_dao.delete(13);
+		System.out.println("Supression de l'article créer dans la db : " + sucess_3);
 		
 	}
 }
