@@ -29,6 +29,10 @@ public class ArticleDao extends Dao {
 		}
 		return null;
 	}
+	
+	public ArrayList<Article> reedAll(){
+		
+	}
 
 	private Article createArticleFromResult(ResultSet result) throws SQLException {
 		return new Article(
@@ -37,5 +41,7 @@ public class ArticleDao extends Dao {
 				result.getString("Brand"),
 				result.getFloat("UnitaryPrice"));
 	}
+	
+	
 
 }
