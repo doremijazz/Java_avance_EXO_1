@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.model.Article;
 
@@ -30,9 +32,22 @@ public class ArticleDao extends Dao {
 		return null;
 	}
 	
-	public ArrayList<Article> reedAll(){
-		
+	public List<Article> reedAll(){
+		List<Article> articles = new ArrayList<>();
+		String sql = "SELECT * FROM t_articles";
+		try(Connection connection = getconnection();
+				PreparedStatement statement = connection.prepareStatement(sql);
+				ResultSet result = statement.executeQuery()){
+			while(result.next()) {
+				articles.add(createArticleFromResult(result));
+			}
+		}catch (SQLException exception) {
+			System.err.println("Erreur lors de la lecture des articles : " + exception.getMessage());
+		}
+		return articles;
 	}
+	
+	
 
 	private Article createArticleFromResult(ResultSet result) throws SQLException {
 		return new Article(
