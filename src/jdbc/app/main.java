@@ -17,7 +17,7 @@ public class main {
 		System.out.println("Création d'un article dans la db : " + sucess);
 		
 		//READ
-		Article article_2 = Article_dao.read(1);
+		Article article_2 = Article_dao.read(article_1.getIdArticle());
 		System.out.println("\n Lecture d'un article de la db : " + article_2);
 		
 		//READ ALL
@@ -27,13 +27,13 @@ public class main {
 		}
 		
 		//UPDATE
-		Article article_3 = new Article(13, "description modif", "brand modif", 8.50);
+		Article article_3 = new Article(article_1.getIdArticle(), "description modif", "brand modif", 8.50);
 		System.out.println("article a MAJ : " + article_3);
 		Boolean sucess_2 = Article_dao.update(article_3); 
 		System.out.println("MAJ d'un article dans la db : " + sucess_2);
 		
 		//DELETE
-		Boolean sucess_3 = Article_dao.delete(13);
+		Boolean sucess_3 = Article_dao.delete(article_1.getIdArticle());
 		System.out.println("Supression de l'article créer dans la db : " + sucess_3);
 		
 	}
