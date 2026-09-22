@@ -72,24 +72,25 @@ public class ArticleDao extends Dao {
 	}
 	
 	public boolean update(Article article) {
-		String sql = "UPDATE t_articles SET Description=?, Brand = ? , UnitatyPrice = ? WHERE idArticle = ? ";
+		String sql = "UPDATE t_articles SET Description=?, Brand = ? , UnitaryPrice = ? WHERE idArticle = ? ";
 		try(Connection connection = getconnection();
 				PreparedStatement statement = connection.prepareStatement(sql)){
 			statement.setString(1, article.getDescription());
 			statement.setString(2, article.getBrand());
 			statement.setFloat(3, article.getUnitaryPrice());
+			statement.setInt(4, article.getIdArticle());
 			
 			try(ResultSet result = statement.executeQuery()){
 				if (result.next()) {
 					createArticleFromResult(result);
-					return true;
+					
 				}
+				return true;
 			}
 		} catch (SQLException exception) {
 			System.err.println("Erreur lors de la MAJ de l'article : " + exception.getMessage());
 			return false;
 		}
-		return false;
 	}
 	
 
