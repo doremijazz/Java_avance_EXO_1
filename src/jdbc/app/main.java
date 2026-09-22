@@ -11,7 +11,7 @@ public class main {
 		ArticleDao Article_dao = new ArticleDao();
 		
 		//CREATE
-		Article article_1 = new Article("description", "brand", 3.50);
+		Article article_1 = new Article("description", "brand", 3.5f);
 		System.out.println("article a créer : " + article_1);
 		Boolean sucess = Article_dao.create(article_1); 
 		System.out.println("Création d'un article dans la db : " + sucess);
@@ -27,7 +27,7 @@ public class main {
 		}
 		
 		//UPDATE
-		Article article_3 = new Article(article_1.getIdArticle(), "description modif", "brand modif", 8.50);
+		Article article_3 = new Article(article_1.getIdArticle(), "description modif", "brand modif", 8.5f);
 		System.out.println("article a MAJ : " + article_3);
 		Boolean sucess_2 = Article_dao.update(article_3); 
 		System.out.println("MAJ d'un article dans la db : " + sucess_2);

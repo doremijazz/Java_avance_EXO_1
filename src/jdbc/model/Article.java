@@ -7,17 +7,17 @@ public class Article {
 	private String Brand;
 	private float UnitaryPrice;
 	
-	public Article(int idArticle, String Description, String Brand, double d) {
+	public Article(int idArticle, String Description, String Brand, float d) {
 		this.idArticle = idArticle;
 		this.Description = Description;
 		this.Brand = Brand;
-		this.UnitaryPrice = (float) d;
+		this.UnitaryPrice = d;
 	}
 
-	public Article(String description, String brand, double d) {
+	public Article(String description, String brand, float d) {
 		this.Description = description;
 		this.Brand = brand;
-		this.UnitaryPrice = (float) d;
+		this.UnitaryPrice = d;
 	}
 
 	public int getIdArticle() {
