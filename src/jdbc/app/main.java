@@ -27,6 +27,10 @@ public class main {
 		}
 		
 		//UPDATE
+		Article article_3 = new Article(13, "description modif", "brand modif", 8.50);
+		System.out.println("article a MAJ : " + article_3);
+		Boolean sucess_2 = Article_dao.update(article_3); 
+		System.out.println("MAJ d'un article dans la db : " + sucess_2);
 		
 		//DELETE
 		
