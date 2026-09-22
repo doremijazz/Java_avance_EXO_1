@@ -101,7 +101,7 @@ public class ArticleDao extends Dao {
 	            PreparedStatement statement = connection.prepareStatement(sql)
 	        ) {
 	            statement.setInt(1, id);
-
+	            
 	            return statement.executeUpdate() == 1;
 
 	        } catch (SQLException exception) {
