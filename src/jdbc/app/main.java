@@ -13,6 +13,8 @@ public class main {
 		//CREATE
 		
 		//READ
+		Article article = Article_dao.read(1);
+		System.out.println("\n Lecture d'un article de la db : " + article);
 		
 		//READ ALL
 		System.out.println("\n Liste des articles : ");
