@@ -12,6 +12,7 @@ public class main {
 		
 		//CREATE
 		Article article_1 = new Article("description", "brand", 3.50);
+		System.out.println("article a créer : " + article_1);
 		Boolean sucess = Article_dao.create(article_1); 
 		System.out.println("Création d'un article dans la db : " + sucess);
 		
