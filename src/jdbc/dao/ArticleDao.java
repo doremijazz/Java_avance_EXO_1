@@ -16,7 +16,7 @@ public class ArticleDao extends Dao {
 	}
 	
 	public Article read(int id) {
-		String sql = "SELECT idArticle, Description, Brand, UnitatyPrice FROM t_articles WHERE idArticle = ?";
+		String sql = "SELECT idArticle, Description, Brand, UnitaryPrice FROM t_articles WHERE idArticle = ?";
 		try(Connection connection = getconnection();
 				PreparedStatement statement = connection.prepareStatement(sql)){
 			statement.setInt(1, id);
